@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  #apache2
+  apache2:
+    container_name: apache2
+    build: ./docker/apache2
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/apache2/vhosts:/etc/apache2/sites-enabled
+      - ./website:/var/www
+      - ./var/logs/apache2:/var/log/apache2 # apache_logs
+    restart: always
+    networks:
+      - network
+  #Base de données MariaDB
+  db:
+    container_name: db
+    image: mariadb:10.5.8
+    restart: always
+    volumes:
+      - ./var/db-data:/var/lib/mysql
+      #- ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app_db
+      TZ: Europe/Paris
+    networks:
+      - network
+  #PHP My Admin
+  phpmyadmin:
+    container_name: pma
+    image: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+    networks:
+      - network
+#Network
+networks:
+  network:
+#Volumes
+#volumes:
+#  db-data:
+#  log:
