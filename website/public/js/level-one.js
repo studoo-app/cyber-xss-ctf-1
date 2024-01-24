@@ -1,46 +1,18 @@
+import Tools from './tools.js';
 console.log('checker 1 loaded')
 
 const successPayload = '<script>alert("XSS test vulnerability")</script>';
 
-if(
-    document.querySelector('.alert-success') &&
-    document.querySelector('#username-data').innerHTML === successPayload) {
-    console.log('success');
-    document.querySelector('#level-one-container').append(createAlert(true));
-}else{
-    console.log('failed');
-    document.querySelector('#level-one-container').append(createAlert(false));
-}
-
-function createAlert(boolSuccess) {
-    let alert = document.createElement('div');
-    alert.classList.add('alert');
-    alert.classList.add(boolSuccess ? 'alert-success' : 'alert-danger');
-    alert.setAttribute('role', 'alert');
-
-    let heading = document.createElement('h4');
-    heading.classList.add('alert-heading');
-    heading.innerHTML = boolSuccess ? 'Success!' : 'Failed!';
-    alert.append(heading);
-
-    let message = document.createElement('p');
-    message.innerHTML = boolSuccess ? 'XSS Success! => FLAG{XSS_1s_4w3s0m3}' : 'XSS Failed! Try again';
-    alert.append(message);
-
-    if(boolSuccess) {
-        let link = document.createElement('a');
-        link.classList.add('alert-link');
-        link.setAttribute('href', '/level/2');
-        link.innerHTML = 'Next Level';
-        link.setAttribute('role', 'button');
-        link.setAttribute('class', 'btn btn-outline-success')
-        alert.append(link);
+if(document.querySelector('.alert-success')){
+    if(
+        document.querySelector('#username-data').innerHTML === successPayload) {
+        console.log('success');
+        document.querySelector('#level-one-container').append(Tools.createAlert(true,'FLAG{XSS_1s_4w3s0m3}'));
+    }else{
+        console.log('failed');
+        document.querySelector('#level-one-container').append(Tools.createAlert(false));
     }
-
-    return alert;
 }
-
-
 
 // document.querySelector('form').addEventListener('submit', function(e) {
 //     e.preventDefault();
