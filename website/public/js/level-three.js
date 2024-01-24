@@ -7,9 +7,11 @@ if(document.querySelector('.alert-success')){
     if(
         document.querySelector('#username-data').innerHTML === successPayload) {
         console.log('success');
+        Tools.updateLevelProgression(3, true, 'FLAG{XSS_3s_v3rY_0bvi0us}');
         document.querySelector('#level-one-container').append(Tools.createAlert(true,'/level/4','FLAG{XSS_3s_v3rY_0bvi0us}'));
     }else{
         console.log('failed');
+        Tools.updateLevelProgression(3, false, null);
         document.querySelector('#level-one-container').append(Tools.createAlert(false));
     }
 }
