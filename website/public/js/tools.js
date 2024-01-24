@@ -1,4 +1,4 @@
-function createAlert(boolSuccess,flag = null) {
+function createAlert(boolSuccess,nextLevelUrl = null, flag = null) {
     let alert = document.createElement('div');
     alert.classList.add('alert');
     alert.classList.add(boolSuccess ? 'alert-success' : 'alert-danger');
@@ -16,7 +16,7 @@ function createAlert(boolSuccess,flag = null) {
     if(boolSuccess) {
         let link = document.createElement('a');
         link.classList.add('alert-link');
-        link.setAttribute('href', '/level/2');
+        link.setAttribute('href', nextLevelUrl);
         link.innerHTML = 'Next Level';
         link.setAttribute('role', 'button');
         link.setAttribute('class', 'btn btn-outline-success')

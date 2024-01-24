@@ -1,5 +1,5 @@
 import Tools from './tools.js';
-console.log('checker 1 loaded')
+console.log('checker 3 loaded')
 
 const successPayload = '<script>alert("XSS test vulnerability")</script>';
 
@@ -7,7 +7,7 @@ if(document.querySelector('.alert-success')){
     if(
         document.querySelector('#username-data').innerHTML === successPayload) {
         console.log('success');
-        document.querySelector('#level-one-container').append(Tools.createAlert(true,'/level/2','FLAG{XSS_1s_D1sc0v3r3d}'));
+        document.querySelector('#level-one-container').append(Tools.createAlert(true,'/level/4','FLAG{XSS_3s_v3rY_0bvi0us}'));
     }else{
         console.log('failed');
         document.querySelector('#level-one-container').append(Tools.createAlert(false));

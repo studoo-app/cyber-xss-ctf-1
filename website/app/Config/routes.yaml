@@ -7,7 +7,12 @@ level-one:
     uri: /level/1
     controller: Controller\Level\LevelOneController
     httpMethod: [GET, POST]
-check-level-one:
-    uri: /level/1/check
-    controller: Controller\Check\CheckLevelOneController
-    httpMethod: [POST]
+level-two:
+    uri: /level/2
+    controller: Controller\Level\LevelTwoController
+    httpMethod: [GET, POST]
+level-three:
+    uri: /level/3
+    controller: Controller\Level\LevelThreeController
+    httpMethod: [GET, POST]
+

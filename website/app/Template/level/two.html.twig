@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3" id="level-one-container">
             <div class="card">
                 <div class="card-header h5">{{ titre }}</div>
-                <form action="/level/1" method="post" class="mb-0">
+                <form action="/level/2" method="post" class="mb-0">
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
@@ -21,13 +21,13 @@
             </div>
             {% if username %}
                 <div class="alert alert-success mt-3" role="alert">
-                    Ton username est : <strong id="username-data">{{ username | raw }}</strong>
+                    Ton username est : <input type="text" class="form-control" placeholder="Digidix" disabled id="username-data" name="username-data" value="{{ username | raw }}" >
                 </div>
             {% endif %}
         </div>
     </div>
 {% endblock %}
 {% block javascript %}
-    <script type="module" src="/js/level-one.js"></script>
+    <script type="module" src="/js/level-two.js"></script>
 {% endblock %}
 
