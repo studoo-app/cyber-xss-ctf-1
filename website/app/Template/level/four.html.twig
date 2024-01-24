@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block titre %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3" id="level-one-container">
+            <div class="card">
+                <div class="card-header h5">{{ titre }}</div>
+                <form action="/level/4" method="post" class="mb-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="imgFileName" class="form-label">Image file name</label>
+                            <input type="text" class="form-control" id="imgFileName" name="imgFileName" placeholder="cat.jpg">
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+                    </div>
+                </form>
+            </div>
+            {% if imgFileName %}
+                <div class="alert alert-success mt-3" role="alert">
+                    <img alt="level-one" id="img-display" class="img-fluid" src="{{ imgFileName | raw }}" >
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="module" src="/js/level-four.js"></script>
+{% endblock %}
+
