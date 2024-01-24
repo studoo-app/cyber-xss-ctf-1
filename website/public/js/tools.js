@@ -66,14 +66,13 @@ function updateLevelProgression(level, success, flag){
     data[level-1].success = success;
     data[level-1].flag = flag;
 
-    console.log(data);
     addDataToStorage(data);
 }
 
 function resetProgression(){
     localStorage.removeItem('xss-ctf');
+    location.reload()
 }
-
 
 export default {
     createAlert,

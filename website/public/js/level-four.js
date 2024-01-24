@@ -6,11 +6,9 @@ const successPayload = "alert('XSS test vulnerability')";
 if(document.querySelector('.alert-success')){
     if(
         document.querySelector('#img-display').getAttribute('onload') === successPayload) {
-        console.log('success');
         Tools.updateLevelProgression(4, true, 'FLAG{XSS_4s_Cl3v3r}');
         document.querySelector('#level-one-container').append(Tools.createAlert(true,'/level/5','FLAG{XSS_4s_Cl3v3r}'));
     }else{
-        console.log('failed');
         Tools.updateLevelProgression(4, false, null);
         document.querySelector('#level-one-container').append(Tools.createAlert(false));
     }
