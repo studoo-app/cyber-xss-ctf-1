@@ -2,7 +2,12 @@ index:
     uri: /
     controller: Controller\HomeController
     httpMethod: [GET]
-testdb:
-    uri: /testdb
-    controller: Controller\DataBaseTestController
-    httpMethod: [GET]
+
+level-one:
+    uri: /level/1
+    controller: Controller\Level\LevelOneController
+    httpMethod: [GET, POST]
+check-level-one:
+    uri: /level/1/check
+    controller: Controller\Check\CheckLevelOneController
+    httpMethod: [POST]

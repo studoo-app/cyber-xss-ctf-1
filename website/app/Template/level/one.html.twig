@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3" id="level-one-container">
+            <div class="card">
+                <div class="card-header h5">Level 1</div>
+                <form action="/level/1" method="post" class="mb-0">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Digidix">
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+                    </div>
+                </form>
+            </div>
+            {% if username %}
+                <div class="alert alert-success mt-3" role="alert">
+                    Ton username est : <strong id="username-data">{{ username | raw }}</strong>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script src="/js/level-one.js"></script>
+{% endblock %}
+
