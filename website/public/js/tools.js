@@ -11,10 +11,10 @@ function createAlert(boolSuccess,nextLevelUrl = null, flag = null) {
     alert.append(heading);
 
     let message = document.createElement('p');
-    message.innerHTML = boolSuccess ? `XSS Success! => ${flag}` : 'XSS Failed! Try again';
+    message.innerHTML = boolSuccess ? `${flag}` : 'XSS Failed! Try again';
     alert.append(message);
 
-    if(boolSuccess) {
+    if(boolSuccess && nextLevelUrl) {
         let link = document.createElement('a');
         link.classList.add('alert-link');
         link.setAttribute('href', nextLevelUrl);
@@ -74,9 +74,15 @@ function resetProgression(){
     location.reload()
 }
 
+function checkCompletion(){
+    let data = getDataFromStorage();
+    return data.every((level) => level.success === true)
+}
+
 export default {
     createAlert,
     getDataFromStorage,
     updateLevelProgression,
-    resetProgression
+    resetProgression,
+    checkCompletion
 }

@@ -2,6 +2,12 @@ import Tools from './tools.js';
 
 const progress = Tools.getDataFromStorage()
 
+if(Tools.checkCompletion()){
+    document.querySelector('#full-completion').append(
+        Tools.createAlert('success',null,"MASTER_FLAG{Y0U_4R3_4_M4573R_0F_X55}")
+    )
+}
+
 progress.forEach((level) => {
     document.querySelector(`#card-level-${level.level}`).classList.add(getBorderColor(level.success))
     document.querySelector(`#icon-level-${level.level}`).classList.add(...getIcon(level.success))

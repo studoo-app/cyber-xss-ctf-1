@@ -7,9 +7,15 @@ if(document.querySelector('.alert-success')){
     if(
         document.querySelector('#username-data').innerHTML === successPayload) {
         Tools.updateLevelProgression(1, true, 'FLAG{XSS_1s_D1sc0v3r3d}');
-        document.querySelector('#level-one-container').append(Tools.createAlert(true,'/level/2','FLAG{XSS_1s_D1sc0v3r3d}'));
+        document.querySelector('#level-one-container').insertBefore(
+            Tools.createAlert(true,'/level/2','FLAG{XSS_1s_D1sc0v3r3d}'),
+            document.querySelector('#level-one-container').firstChild
+        );
     }else{
         Tools.updateLevelProgression(1, false, null);
-        document.querySelector('#level-one-container').append(Tools.createAlert(false));
+        document.querySelector('#level-one-container').insertBefore(
+            Tools.createAlert(false),
+            document.querySelector('#level-one-container').firstChild
+        );
     }
 }

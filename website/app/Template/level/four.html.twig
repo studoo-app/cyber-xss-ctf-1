@@ -4,17 +4,32 @@
 
 {% block content %}
     <div class="row mt-5">
-        <div class="col-md-6 offset-md-3" id="level-one-container">
+        <div class="col-md-6 offset-md-3" id="level-four-container">
             <div class="card">
                 <div class="card-header h5">{{ titre }}</div>
                 <form action="/level/4" method="post" class="mb-0">
                     <div class="card-body">
+                        <div class="card-text">
+                            <p>Cette page propose un formulaire qui permet d'afficher une image en fournissant le nom de fichier</p>
+                            <div class="alert alert-info" role="alert">
+                                <p class="fw-bold">Liste de fichiers disponibles</p>
+                                <ul>
+                                    <li>carapuce.png</li>
+                                    <li>salameche.png</li>
+                                    <li>florizarre.png</li>
+                                </ul>
+                            </div>
+                            <p>A l'aide d'une injection XSS, afficher une alerte Javascript contenant le text suivant:</p>
+                            <b>'XSS test vulnerabilty'</b>.
+                        </div>
+                        <hr/>
                         <div class="mb-3">
                             <label for="imgFileName" class="form-label">Image file name</label>
                             <input type="text" class="form-control" id="imgFileName" name="imgFileName" placeholder="cat.jpg">
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-center">
+                    <div class="card-footer d-flex justify-content-center hstack gap-2">
+                        <a href="/" class="btn btn-danger">Retour</a>
                         <button type="submit" name="submit" class="btn btn-primary">Valider</button>
                     </div>
                 </form>
