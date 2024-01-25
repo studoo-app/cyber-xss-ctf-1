@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block titre %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3" id="level-five-container">
+            <div class="card" id="target-content">
+                <div class="card-header h5">{{ titre }}</div>
+                <form action="/level/5" method="post" class="mb-0">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Enoncé
+                        </h5>
+                        <div class="card-text">
+                            <p>Cette page propose un formulaire qui affiche la valeur du champ dans une balise texte</p>
+                            <p>A l'aide d'une injection XSS, afficher une alerte Javascript contenant le text suivant:</p>
+                            <b>'XSS test vulnerabilty'</b>.
+                        </div>
+                        <hr/>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Digidix">
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center hstack gap-2">
+                        <a href="/" class="btn btn-danger">Retour</a>
+                        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+                    </div>
+                </form>
+            </div>
+            {% if username %}
+                <div class="alert alert-success mt-3" role="alert">
+                    Ton username est : <strong id="username-data">{{ username | raw }}</strong>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script type="module" src="/js/level-five.js"></script>
+{% endblock %}
+

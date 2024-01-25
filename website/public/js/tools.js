@@ -52,6 +52,11 @@ function getDataFromStorage(){
                 level: 4,
                 success: null,
                 flag: null
+            },
+            {
+                level: 5,
+                success: null,
+                flag: null
             }
         ]
 }

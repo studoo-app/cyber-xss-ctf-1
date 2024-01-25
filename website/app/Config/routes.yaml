@@ -19,3 +19,7 @@ level-four:
     uri: /level/4
     controller: Controller\Level\LevelFourController
     httpMethod: [GET, POST]
+level-five:
+    uri: /level/5
+    controller: Controller\Level\LevelFiveController
+    httpMethod: [GET, POST]
