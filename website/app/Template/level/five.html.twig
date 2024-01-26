@@ -14,8 +14,13 @@
                         </h5>
                         <div class="card-text">
                             <p>Cette page propose un formulaire qui affiche la valeur du champ dans une balise texte</p>
-                            <p>A l'aide d'une injection XSS, afficher une alerte Javascript contenant le text suivant:</p>
-                            <b>'XSS test vulnerabilty'</b>.
+                            <p>A l'aide d'une injection XSS, rempalcer le contenu de l'élément <code>#target-content</code> par un élement ayant les caractéristiques suivantes :</p>
+                            <ul>
+                                <li>Tag : <code>div</code></li>
+                                <li>class : <code>alert alert-danger</code></li>
+                                <li>id : xss-bomb</li>
+                                <li>text : XSS WORKS </li>
+                            </ul>
                         </div>
                         <hr/>
                         <div class="mb-3">
