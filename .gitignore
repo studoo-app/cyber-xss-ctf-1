@@ -1,3 +1,8 @@
-.idea
-/var
+.idea/**
+
+# Managed by Composer
+vendor/
+var/
+composer.phar
+composer.lock
 .env
