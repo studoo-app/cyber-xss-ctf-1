@@ -15,7 +15,7 @@ if (version_compare(PHP_VERSION, '8.0', '<') === false) {
     // Chargement des configurations de l'application
     (new ConfigCore(
         [
-            'base_path'         => __DIR__ . '/website/',
+            'base_path'         => __DIR__ . '/',
             'twig_path'         => __DIR__ . '/../app/Template',
             'route_config_path'  => __DIR__ . '/../app/Config/'
         ]
